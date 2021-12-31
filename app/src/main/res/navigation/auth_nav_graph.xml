@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/preferences_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.zaidkhaled.imagescatalog.ui.authentication.login.LoginFragment"
+        android:label="loginFragment"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/openRegisterFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_start"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_end"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.zaidkhaled.imagescatalog.ui.authentication.register.RegisterFragment"
+        android:label="registerFragment"
+        tools:layout="@layout/fragment_register" />
+
+</navigation>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Images Catalog</string>
+    <string name="let_s_sign_you_in">Let\'s sign you in</string>
+    <string name="welcome_back_you_have_been_missed">Welcome back! you have been missed</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="register_now">Register Now</string>
+    <string name="fill_in_below_fields_to_register">Fill in below fields to register</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="enter_valid_email">Enter a valid email address</string>
+    <string name="invalid_password">Enter a valid password</string>
+</resources>
