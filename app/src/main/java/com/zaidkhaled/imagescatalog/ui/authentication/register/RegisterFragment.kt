@@ -2,14 +2,17 @@ package com.zaidkhaled.imagescatalog.ui.authentication.register
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.zaidkhaled.imagescatalog.BuildConfig
 import com.zaidkhaled.imagescatalog.R
+import com.zaidkhaled.imagescatalog.common.enums.Status
 import com.zaidkhaled.imagescatalog.databinding.FragmentRegisterBinding
-import com.zaidkhaled.imagescatalog.extensions.isValidEmail
-import com.zaidkhaled.imagescatalog.extensions.isValidPassword
+import com.zaidkhaled.imagescatalog.extensions.*
 import com.zaidkhaled.imagescatalog.ui.authentication.viewModel.AuthenticationViewModel
 import com.zaidkhaled.imagescatalog.ui.base.fragments.BaseBindingFragment
+import com.zaidkhaled.imagescatalog.ui.images.activity.ImagesActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -26,6 +29,16 @@ class RegisterFragment : BaseBindingFragment<FragmentRegisterBinding>() {
         binding?.viewModel = viewModel
 
         setUpListeners()
+
+        if (BuildConfig.DEBUG) {
+            setUpTestingData()
+        }
+    }
+
+    private fun setUpTestingData() {
+        viewModel.registerUsername.value = "test@gmail.com"
+        viewModel.registerAge.value = "25"
+        viewModel.registerPassword.value = "123456"
     }
 
     private fun validateInput() {
@@ -41,6 +54,36 @@ class RegisterFragment : BaseBindingFragment<FragmentRegisterBinding>() {
             return
         }
         binding?.tlPassword?.isErrorEnabled = false
+
+        if (!(viewModel.registerAge.value ?: "").isValidAge()) {
+            binding?.tlAge?.isErrorEnabled = true
+            binding?.tlAge?.error = getString(R.string.invalid_age)
+            return
+        }
+        binding?.tlAge?.isErrorEnabled = false
+
+        //validation complete, register user
+       registerUser()
+    }
+
+    private fun registerUser() {
+        viewModel.register().observe(viewLifecycleOwner, {
+            it?.let { resource ->
+                when (resource.status) {
+                    Status.SUCCESS -> {
+                        binding?.progressBar.hide()
+                        ImagesActivity.start(context)
+                    }
+                    Status.ERROR, Status.CUSTOM_ERROR -> {
+                        binding?.progressBar.hide()
+                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                    }
+                    Status.LOADING -> {
+                        binding?.progressBar.show()
+                    }
+                }
+            }
+        })
     }
 
     private fun setUpListeners() {

@@ -61,18 +61,14 @@
         <item name="backgroundTint">@color/gray_color</item>
     </style>
 
-    <style name="roundedImageView" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/_6sdp</item>
-    </style>
-
     <style name="AppTheme.ProgressBar" parent="Theme.ImagesCatalog">
         <item name="colorAccent">@color/purple_500</item>
     </style>
 
     <style name="ImagesRecyclerView">
-        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
-        <item name="android:orientation">horizontal</item>
+        <item name="layoutManager">androidx.recyclerview.widget.GridLayoutManager</item>
+        <item name="android:orientation">vertical</item>
+        <item name="spanCount">2</item>
         <item name="android:clipToPadding">false</item>
     </style>
 </resources>

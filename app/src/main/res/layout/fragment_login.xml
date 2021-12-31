@@ -94,6 +94,8 @@
                     android:id="@+id/edtPassword"
                     style="@style/InputEditTextStyle"
                     android:layout_width="match_parent"
+                    android:maxEms="12"
+                    android:maxLength="12"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:text="@={viewModel.loginPassword}" />
@@ -140,6 +142,19 @@
                 app:layout_constraintEnd_toEndOf="@id/gl_v_end"
                 app:layout_constraintStart_toEndOf="@+id/tv_dont_have_account"
                 app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.ProgressBar"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

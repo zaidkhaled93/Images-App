@@ -6,5 +6,7 @@ object NetworkConstants {
     // we just fill it here and the  app will handle the rest
     const val IMAGES_BASE_URL = ""
 
-    const val API_KEY = "25050667-8ba0cd789aa49cec548331dbb&q"
+    const val SUCCESS_CODE = 0
+
+    const val API_KEY = "25050667-8ba0cd789aa49cec548331dbb"
 }

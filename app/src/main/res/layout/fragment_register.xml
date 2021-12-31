@@ -79,6 +79,29 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlAge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:hint="@string/age"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tlUsername">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtAge"
+                    style="@style/InputEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxEms="2"
+                    android:maxLength="2"
+                    android:text="@={viewModel.registerAge}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tlPassword"
                 android:layout_width="0dp"
@@ -87,7 +110,7 @@
                 android:hint="@string/password"
                 app:layout_constraintEnd_toEndOf="@id/gl_v_end"
                 app:layout_constraintStart_toStartOf="@id/gl_v_start"
-                app:layout_constraintTop_toBottomOf="@id/tlUsername"
+                app:layout_constraintTop_toBottomOf="@id/tlAge"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -106,6 +129,8 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_30sdp"
+                android:maxEms="12"
+                android:maxLength="12"
                 android:text="@string/register"
                 app:layout_constraintEnd_toEndOf="@id/gl_v_end"
                 app:layout_constraintStart_toStartOf="@id/gl_v_start"
@@ -139,6 +164,17 @@
                 app:layout_constraintEnd_toEndOf="@id/gl_v_end"
                 app:layout_constraintStart_toEndOf="@+id/tv_already_have_account"
                 app:layout_constraintTop_toBottomOf="@id/btnRegister" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.ProgressBar"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

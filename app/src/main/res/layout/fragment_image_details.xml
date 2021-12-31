@@ -4,17 +4,152 @@
 
     <data>
 
+        <import type="com.zaidkhaled.imagescatalog.R" />
+
+        <import type="android.view.View" />
+
         <variable
-            name="viewModel"
-            type="com.zaidkhaled.imagescatalog.ui.images.viewModel.ImagesViewModel" />
+            name="image"
+            type="com.zaidkhaled.imagescatalog.data.models.responses.ImageResponse" />
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.authentication.login.LoginActivity">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_12sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_12sdp" />
+
+            <ImageView
+                android:id="@+id/iv_image"
+                defaultImage="@{R.drawable.placeholder}"
+                imageUrl="@{image.largeImageURL}"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_200sdp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_size"
+                style="@style/AppTheme.TinyTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{@string/image_size(String.valueOf(image.imageSize))}"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_image" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                style="@style/AppTheme.TinyTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{@string/image_type(String.valueOf(image.type))}"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_size" />
+
+            <TextView
+                android:id="@+id/tv_tags"
+                style="@style/AppTheme.TinyTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{@string/image_tags(String.valueOf(image.tags))}"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_type" />
+
+            <TextView
+                android:id="@+id/tv_section_two_title"
+                style="@style/AppTheme.MediumTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="@string/additional_information"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_tags" />
+
+            <TextView
+                android:id="@+id/tv_user"
+                style="@style/AppTheme.TinyTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{@string/uploaded_by(String.valueOf(image.user))}"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_section_two_title" />
+
+            <TextView
+                android:id="@+id/tv_views"
+                style="@style/AppTheme.TinyTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{@string/total_views(String.valueOf(image.views))}"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_user" />
+
+            <TextView
+                android:id="@+id/tv_likes"
+                style="@style/AppTheme.TinyTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{@string/total_likes(String.valueOf(image.likes))}"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_views" />
+
+            <TextView
+                android:id="@+id/tv_comments"
+                style="@style/AppTheme.TinyTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{@string/total_comments(String.valueOf(image.comments))}"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_likes" />
+
+            <TextView
+                android:id="@+id/tv_downloads"
+                style="@style/AppTheme.TinyTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{@string/total_downloads(String.valueOf(image.downloads))}"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_end"
+                app:layout_constraintStart_toStartOf="@id/gl_v_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_comments" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </layout>

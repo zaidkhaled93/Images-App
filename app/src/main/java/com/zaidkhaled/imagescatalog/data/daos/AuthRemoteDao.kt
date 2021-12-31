@@ -6,16 +6,16 @@ import retrofit2.http.Query
 
 interface AuthRemoteDao {
 
-    @POST
+    @POST("login")
     suspend fun loginUser(
         @Query("username") username: String?,
         @Query("password") password: String?
     ): ResponseWrapper<Boolean>
 
-    @POST
+    @POST("register")
     suspend fun registerUser(
         @Query("username") username: String?,
-        @Query("age") age: Int?,
+        @Query("age") age: String?,
         @Query("password") password: String?
     ): ResponseWrapper<Boolean>
 

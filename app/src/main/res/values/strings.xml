@@ -12,4 +12,16 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="enter_valid_email">Enter a valid email address</string>
     <string name="invalid_password">Enter a valid password</string>
+    <string name="invalid_age">Enter a valid age</string>
+    <string name="age">Age</string>
+    <string name="image_details">Image Details</string>
+    <string name="image_size">Image Size: %s</string>
+    <string name="image_type">Image Type: %s</string>
+    <string name="image_tags">Image Tags: %s</string>
+    <string name="additional_information">Additional Information</string>
+    <string name="uploaded_by">Uploaded By: %s</string>
+    <string name="total_views">Total Views: %s</string>
+    <string name="total_likes">Total Likes: %s</string>
+    <string name="total_comments">Total Comments: %s</string>
+    <string name="total_downloads">Total Downloads: %s</string>
 </resources>

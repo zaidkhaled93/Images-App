@@ -12,7 +12,7 @@ interface AuthRepository {
     @POST
     suspend fun registerUser(
         username: String?,
-        age: Int?,
+        age: String?,
         password: String?
     ): ResponseWrapper<Boolean>
 }

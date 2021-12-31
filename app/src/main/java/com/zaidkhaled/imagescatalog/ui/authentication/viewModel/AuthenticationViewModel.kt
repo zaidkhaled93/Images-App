@@ -19,7 +19,7 @@ class AuthenticationViewModel @Inject constructor(
 
     //register attributes
     val registerUsername: MutableLiveData<String> by lazy { MutableLiveData<String>() }
-    val registerAge: MutableLiveData<Int> by lazy { MutableLiveData<Int>() }
+    val registerAge: MutableLiveData<String> by lazy { MutableLiveData<String>() }
     val registerPassword: MutableLiveData<String> by lazy { MutableLiveData<String>() }
 
     fun login() = liveData {

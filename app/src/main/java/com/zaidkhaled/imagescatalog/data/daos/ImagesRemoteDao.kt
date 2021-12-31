@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface ImagesRemoteDao {
 
-    @GET
+    @GET(".")
     suspend fun getImages(
         @Query("key") api_key: String,
         @Query("image_type") image_type: String,

@@ -1,5 +1,7 @@
 package com.zaidkhaled.imagescatalog.data.models.responses
 
+import java.io.Serializable
+
 
 data class ImageResponse(
     //image data
@@ -17,4 +19,4 @@ data class ImageResponse(
     val likes: Int?,
     val comments: Int?,
     val downloads: Int?
-)
+) : Serializable

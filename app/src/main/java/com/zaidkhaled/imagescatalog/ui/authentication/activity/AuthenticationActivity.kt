@@ -3,6 +3,9 @@ package com.zaidkhaled.imagescatalog.ui.authentication.activity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.zaidkhaled.imagescatalog.R
 import com.zaidkhaled.imagescatalog.databinding.ActivityAuthenticationBinding
 import com.zaidkhaled.imagescatalog.ui.base.activities.BaseBindingActivity
@@ -13,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_authentication.*
 class AuthenticationActivity : BaseBindingActivity<ActivityAuthenticationBinding>() {
     override val layoutId: Int = R.layout.activity_authentication
 
+    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +31,13 @@ class AuthenticationActivity : BaseBindingActivity<ActivityAuthenticationBinding
         navController = navHostFragment.navController
         val inflater = navController.navInflater
         val graph = inflater.inflate(R.navigation.auth_nav_graph)
-
         navHostFragment.navController.graph = graph
+        appBarConfiguration = AppBarConfiguration.Builder(navController.graph).build()
+        setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration)
+                || super.onSupportNavigateUp()
     }
 }

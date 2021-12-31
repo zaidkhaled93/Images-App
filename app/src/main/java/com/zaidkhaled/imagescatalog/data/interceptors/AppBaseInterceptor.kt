@@ -10,9 +10,7 @@ import java.util.*
 import java.util.prefs.Preferences
 import javax.inject.Inject
 
-class AppBaseInterceptor @Inject constructor(
-    private val configurationPref: Preferences
-) : Interceptor {
+class AppBaseInterceptor @Inject constructor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
         val newRequest = chain.request().newBuilder()

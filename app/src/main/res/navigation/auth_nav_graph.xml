@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.zaidkhaled.imagescatalog.ui.authentication.login.LoginFragment"
-        android:label="loginFragment"
+        android:label="Login"
         tools:layout="@layout/fragment_login">
 
         <action
@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.zaidkhaled.imagescatalog.ui.authentication.register.RegisterFragment"
-        android:label="registerFragment"
+        android:label="Register"
         tools:layout="@layout/fragment_register" />
 
 </navigation>
